@@ -108,7 +108,7 @@ class HashTable {
 
     /**
      * @brief Gets a backend Bucket structure from the Hash Table. Included
-     * for client-side implementations of a "Print Table" function.
+     * for client-side implementations of various function (e.g., PrintTable).
      *
      * @see ./examples/e_hashtable.cc
      *
@@ -130,7 +130,6 @@ class HashTable {
 
   private:
     unsigned int capacity_;
-    // The number of buckets currently stored in the Hash Table.
     unsigned int count_;
     // Stores all of the key/value pairs of the Hash Table.
     struct Bucket **table_;
