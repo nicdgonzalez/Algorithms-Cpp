@@ -1,0 +1,8 @@
+# .gitignore file
+
+# C++
+*.exe
+*.o
+
+# Visual Studio Code
+.vscode
