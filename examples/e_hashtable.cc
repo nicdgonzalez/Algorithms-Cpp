@@ -11,11 +11,11 @@ using namespace algorithms;
  *
  * @return void
  */
-static void PrintTable(HashTable *_table) {
-    for (int index = 0; index < _table->capacity(); index++) {
+static void PrintTable(const HashTable &_table) {
+    for (int index = 0; index < _table.capacity(); index++) {
         std::cout << index << " ---> ";
         for (
-          struct Bucket *bucket = (struct Bucket *) _table->bucket(index);
+          const struct Bucket *bucket = _table.bucket(index);
           bucket != nullptr;
           bucket = bucket->next
         ) {
@@ -67,23 +67,22 @@ int main(int argc, const char **argv) {
     ) << std::endl;
 
     // Deleting an Element from the Hash Table.
-    std::cout << (char *) headers.Search("content") << std::endl;
-    headers.Delete("content");
+    std::cout << (unsigned long long int) headers.Search("lives_left") << std::endl;
+    headers.Delete("lives_left");
 
-    const char *content;
     try {
-        content = (const char *) headers.Search("content");
+        headers.Search("lives_left");
     }
     catch (KeyError &error) {
         std::cout << error.what() << std::endl;
     }
 
-    // Printing all the keys from the Hash Table.
-    PrintTable(&headers);
-
     // Printing information about the Hash Table.
     std::cout << "Elements in 'headers': " << headers.count() << std::endl;
     std::cout << "Capacity of 'headers': " << headers.capacity() << std::endl;
+
+    // Printing all the keys from the Hash Table.
+    PrintTable(headers);
 
     return 0;
 }
