@@ -14,9 +14,9 @@ KeyError::KeyError(std::string _key) {
     return;
 }
 
-KeyError::KeyError(const KeyError &exist) {
-    this->key_ = exist.key_;
-    this->message_ = exist.message_;
+KeyError::KeyError(const KeyError &_exist) {
+    this->key_ = _exist.key_;
+    this->message_ = _exist.message_;
 
     return;
 }
@@ -86,12 +86,12 @@ HashTable::HashTable(unsigned int _capacity) {
     return;
 }
 
-HashTable::HashTable(const HashTable &exist) {
-    this->capacity_ = exist.capacity_;
-    this->count_ = exist.count_;
+HashTable::HashTable(const HashTable &_exist) {
+    this->capacity_ = _exist.capacity_;
+    this->count_ = _exist.count_;
 
-    for (int index = 0; index < exist.capacity_; index++) {
-        this->table_[index] = exist.table_[index];
+    for (int index = 0; index < _exist.capacity_; index++) {
+        this->table_[index] = _exist.table_[index];
     }
 }
 
@@ -180,7 +180,7 @@ void HashTable::Delete(std::string _key) {
                 break;
             }
 
-            bucket = &(*bucket)->next;
+            *bucket = (*bucket)->next;
         }
     }
 
