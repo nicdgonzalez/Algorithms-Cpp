@@ -97,14 +97,14 @@ class HashTable {
      *
      * @return const unsigned int
      */
-    const unsigned int capacity(void) { return this->capacity_; }
+    const unsigned int capacity(void) const { return this->capacity_; }
 
     /**
      * @brief Represents the number of buckets currently in the Hash Table.
      *
      * @return const unsigned int
      */
-    const unsigned int count(void) { return this->count_; }
+    const unsigned int count(void) const { return this->count_; }
 
     /**
      * @brief Gets a backend Bucket structure from the Hash Table. Included
@@ -116,7 +116,7 @@ class HashTable {
      *
      * @return const struct Bucket*
      */
-    const struct Bucket * bucket(int _index) { return this->table_[_index]; }
+    const struct Bucket * bucket(int _index) const { return this->table_[_index]; }
 
   protected:
     /**
