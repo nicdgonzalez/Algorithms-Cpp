@@ -11,11 +11,11 @@ using namespace algorithms;
  *
  * @return void
  */
-static void PrintTable(HashTable *_table) {
-    for (int index = 0; index < _table->capacity(); index++) {
+static void PrintTable(const HashTable &_table) {
+    for (int index = 0; index < _table.capacity(); index++) {
         std::cout << index << " ---> ";
         for (
-          struct Bucket *bucket = (struct Bucket *) _table->bucket(index);
+          struct Bucket *bucket = _table.bucket(index);
           bucket != nullptr;
           bucket = bucket->next
         ) {
@@ -74,12 +74,12 @@ int main(int argc, const char **argv) {
     try {
         content = (const char *) headers.Search("content");
     }
-    catch (KeyError &error) {
+    catch (const KeyError &error) {
         std::cout << error.what() << std::endl;
     }
 
     // Printing all the keys from the Hash Table.
-    PrintTable(&headers);
+    PrintTable(headers);
 
     // Printing information about the Hash Table.
     std::cout << "Elements in 'headers': " << headers.count() << std::endl;
